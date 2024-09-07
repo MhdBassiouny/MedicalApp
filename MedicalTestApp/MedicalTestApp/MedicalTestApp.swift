@@ -11,7 +11,7 @@ import SwiftUI
 struct MedicalTestApp: App {
     var body: some Scene {
         WindowGroup {
-            DoctorDetails()
+            DoctorDetails(doctor: doctor)
         }
     }
 }

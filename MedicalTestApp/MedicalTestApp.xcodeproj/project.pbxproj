@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		392016972C8C40380086A82D /* Doctor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392016962C8C40380086A82D /* Doctor.swift */; };
 		F61C69232C81B01A00C96A35 /* MedicalTestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61C69222C81B01A00C96A35 /* MedicalTestApp.swift */; };
 		F61C69252C81B01A00C96A35 /* DoctorDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61C69242C81B01A00C96A35 /* DoctorDetails.swift */; };
 		F61C69272C81B01C00C96A35 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F61C69262C81B01C00C96A35 /* Assets.xcassets */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		392016962C8C40380086A82D /* Doctor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Doctor.swift; sourceTree = "<group>"; };
 		F61C691F2C81B01A00C96A35 /* MedicalTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MedicalTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F61C69222C81B01A00C96A35 /* MedicalTestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalTestApp.swift; sourceTree = "<group>"; };
 		F61C69242C81B01A00C96A35 /* DoctorDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorDetails.swift; sourceTree = "<group>"; };
@@ -40,6 +42,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		392016952C8C400B0086A82D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				392016962C8C40380086A82D /* Doctor.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		F61C69162C81B01A00C96A35 = {
 			isa = PBXGroup;
 			children = (
@@ -59,6 +69,7 @@
 		F61C69212C81B01A00C96A35 /* MedicalTestApp */ = {
 			isa = PBXGroup;
 			children = (
+				392016952C8C400B0086A82D /* Models */,
 				F61C69302C81E3A100C96A35 /* Common Views */,
 				F61C69222C81B01A00C96A35 /* MedicalTestApp.swift */,
 				F61C69242C81B01A00C96A35 /* DoctorDetails.swift */,
@@ -163,6 +174,7 @@
 				F61C69342C81E47300C96A35 /* CustomAsyncImage.swift in Sources */,
 				F61C69252C81B01A00C96A35 /* DoctorDetails.swift in Sources */,
 				F61C69232C81B01A00C96A35 /* MedicalTestApp.swift in Sources */,
+				392016972C8C40380086A82D /* Doctor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

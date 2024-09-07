@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct DoctorDetails: View {
+    let doctor: Doctor
     @State private var selectedTab: Int = 0
     
     var body: some View {
@@ -44,7 +45,7 @@ extension DoctorDetails {
             
             Spacer()
             
-            Text("Dr. Randy Wigham")
+            Text(doctor.name)
                 .font(.title2)
                 .fontWeight(.semibold)
             
@@ -62,16 +63,16 @@ extension DoctorDetails {
     private func doctorProfile() -> some View {
         HStack(alignment: .center) {
             CustomAsyncImage(
-                imageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTH8EPl9l4DGlpG72PLVF8OSWVM3zhvXxk1Iw&s",
+                imageURL: doctor.imageurl,
                 dimension: 80,
                 placeholder: "person"
             )
             
             VStack (alignment: .leading) {
-                Text("Dr. Randy Wigham")
+                Text(doctor.name)
                     .bold()
                 Spacer()
-                Text("General | RSUD Gatot Subroto")
+                Text(doctor.title)
                     .font(.subheadline)
                     .foregroundStyle(Color.gray)
                 Spacer()
@@ -79,7 +80,7 @@ extension DoctorDetails {
                     Image(systemName: "star.fill")
                         .foregroundColor(.yellow)
                     
-                    Text("4.9 (4,231 Review)")
+                    Text(String(format: "%.2f", doctor.rating) + " (\(doctor.numberOfReviews.formatted(.number)) Review)")
                         .foregroundColor(.secondary)
                 }.font(.caption)
             }
@@ -110,7 +111,7 @@ extension DoctorDetails {
                     .bold()
                     .padding(.vertical, 8)
                 
-                Text("Dr. Jenny Watson is the top most Immunologists specialist in Christ Hospital at London. She achived several awards for her wonderful contribution in medical field. She is available for private consultation.")
+                Text(doctor.about)
                     .font(.subheadline)
                     .foregroundColor(.secondary)
                 
@@ -118,7 +119,7 @@ extension DoctorDetails {
                     .bold()
                     .padding(.vertical, 8)
                 
-                Text("Monday - Friday, 08.00 AM - 20.00 PM")
+                Text(doctor.workingTime)
                     .font(.subheadline)
                     .foregroundColor(.secondary)
                 
@@ -126,7 +127,7 @@ extension DoctorDetails {
                     .bold()
                     .padding(.vertical, 8)
                 
-                Text("4726482464")
+                Text(doctor.str)
                     .font(.subheadline)
                     .foregroundColor(.secondary)
                 
@@ -134,10 +135,10 @@ extension DoctorDetails {
                     .bold()
                     .padding(.vertical, 8)
                 
-                Text("RSPAD Gatot Soebroto")
+                Text(doctor.details1)
                     .font(.subheadline)
                 
-                Text("2017 - sekarang")
+                Text(doctor.details2)
                     .font(.subheadline)
                     .foregroundColor(.secondary)
             }
@@ -146,7 +147,7 @@ extension DoctorDetails {
     }
     
     private func reviewsList() -> some View {
-        List(reviews) { review in
+        List(doctor.reviews) { review in
             ReviewView(
                 rating: review.rating,
                 name: review.name,
@@ -169,20 +170,8 @@ extension DoctorDetails {
 }
 
 #Preview {
-    DoctorDetails()
+    DoctorDetails(doctor: doctor)
 }
 
 
 
-struct Review: Identifiable {
-    let id = UUID()
-    let name: String
-    let image: String
-    let rating: Int
-    let content: String
-}
-
-let reviews: [Review] = [
-    Review(name: "Ali Tarek", image: "person.circle.fill", rating: 4, content: "Good doctor and good listener"),
-    Review(name: "Khaled Ahmed", image: "person.circle.fill", rating: 5, content: "The doctor is patient and give a details explaination of the case.")
-]
