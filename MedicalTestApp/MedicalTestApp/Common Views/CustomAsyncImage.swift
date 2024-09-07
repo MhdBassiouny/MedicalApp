@@ -50,10 +50,10 @@ extension Image {
     func headerImage() -> some View {
         self
             .frame(width: 16, height: 16)
-            .padding(6)
+            .padding(12)
             .background(Color.white)
             .cornerRadius(8)
-            .shadow(radius: 5)
+            .shadow(radius: 1)
             .foregroundColor(.black)
     }
 }

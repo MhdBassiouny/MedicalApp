@@ -14,7 +14,7 @@ struct ReviewView: View {
     var imageName: String
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 10) {
+        VStack(alignment: .leading) {
             HStack {
                 Image(systemName: imageName)
                     .resizable()
@@ -40,9 +40,8 @@ struct ReviewView: View {
                 .foregroundColor(.secondary)
         }
         .padding()
-        .frame(maxWidth: .infinity)
         .background(Color.white)
-        .cornerRadius(10)
-        .shadow(radius: 5)
+        .cornerRadius(16)
+        .shadow(radius: 3)
     }
 }

@@ -22,7 +22,7 @@ public struct SubmitButtonStyle: ButtonStyle {
             .frame(width: UIScreen.main.bounds.width * 0.8, height: 50)
             .foregroundColor(.white)
             .background(isValid ? color : Color.gray)
-            .cornerRadius(10)
+            .cornerRadius(16)
             .scaleEffect(configuration.isPressed ? 1.1 : 1.0)
             .animation(.easeOut(duration: 0.5), value: configuration.isPressed)
     }

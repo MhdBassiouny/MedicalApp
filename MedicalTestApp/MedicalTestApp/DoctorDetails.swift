@@ -10,8 +10,6 @@ import SwiftUI
 struct DoctorDetails: View {
     @State private var selectedTab: Int = 0
     
-    
-    
     var body: some View {
         VStack {
             headerView()
@@ -30,10 +28,10 @@ struct DoctorDetails: View {
             appointmentButton()
         }
         .padding()
-        .navigationTitle("Andy Wain")
     }
 }
 
+//MARK: - SubViews
 extension DoctorDetails {
     private func headerView() -> some View {
         HStack {
@@ -46,9 +44,9 @@ extension DoctorDetails {
             
             Spacer()
             
-            Text("Andy Wain")
-                .font(.title)
-                .bold()
+            Text("Dr. Randy Wigham")
+                .font(.title2)
+                .fontWeight(.semibold)
             
             Spacer()
             
@@ -62,7 +60,7 @@ extension DoctorDetails {
     }
     
     private func doctorProfile() -> some View {
-        HStack(alignment: .top, spacing: 16) {
+        HStack(alignment: .center) {
             CustomAsyncImage(
                 imageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTH8EPl9l4DGlpG72PLVF8OSWVM3zhvXxk1Iw&s",
                 dimension: 80,
@@ -70,22 +68,28 @@ extension DoctorDetails {
             )
             
             VStack (alignment: .leading) {
-                Text("Andy Wain")
-                    .font(.title2)
+                Text("Dr. Randy Wigham")
                     .bold()
-                
+                Spacer()
                 Text("General | RSUD Gatot Subroto")
-                
+                    .font(.subheadline)
+                    .foregroundStyle(Color.gray)
+                Spacer()
                 HStack(alignment: .center) {
                     Image(systemName: "star.fill")
                         .foregroundColor(.yellow)
                     
                     Text("4.9 (4,231 Review)")
-                        .font(.body)
                         .foregroundColor(.secondary)
-                }
+                }.font(.caption)
             }
             Spacer()
+            Button {
+                
+            } label: {
+                Image(systemName: "text.bubble")
+                    .resize(to: 20)
+            }
         }
         .frame(height: 80)
         .frame(maxWidth: .infinity)
@@ -93,49 +97,48 @@ extension DoctorDetails {
     
     private func selectionButtons() -> some View {
         HStack(spacing: 0) {
-            CustomTabButton(selectedItem: $selectedTab, text: "Overview", currentSelection: 0)
-            CustomTabButton(selectedItem: $selectedTab, text: "Details", currentSelection: 1)
+            CustomTabButton(selectedItem: $selectedTab, text: "About", currentSelection: 0)
+            CustomTabButton(selectedItem: $selectedTab, text: "Location", currentSelection: 1)
             CustomTabButton(selectedItem: $selectedTab, text: "Reviews", currentSelection: 2)
-        }
+        }.padding(.vertical, 20)
     }
     
     private func overview() -> some View {
         ScrollView {
             VStack(alignment: .leading) {
                 Text("About Me")
-                    .font(.title3)
                     .bold()
                     .padding(.vertical, 8)
                 
                 Text("Dr. Jenny Watson is the top most Immunologists specialist in Christ Hospital at London. She achived several awards for her wonderful contribution in medical field. She is available for private consultation.")
-                    .font(.body)
+                    .font(.subheadline)
                     .foregroundColor(.secondary)
                 
                 Text("Working Time")
-                    .font(.title3)
                     .bold()
                     .padding(.vertical, 8)
                 
                 Text("Monday - Friday, 08.00 AM - 20.00 PM")
-                    .font(.body)
+                    .font(.subheadline)
                     .foregroundColor(.secondary)
                 
                 Text("STR")
-                    .font(.title3)
                     .bold()
                     .padding(.vertical, 8)
                 
                 Text("4726482464")
-                    .font(.body)
+                    .font(.subheadline)
                     .foregroundColor(.secondary)
                 
                 Text("Pengalaman Praktik")
-                    .font(.title3)
                     .bold()
                     .padding(.vertical, 8)
                 
+                Text("RSPAD Gatot Soebroto")
+                    .font(.subheadline)
+                
                 Text("2017 - sekarang")
-                    .font(.body)
+                    .font(.subheadline)
                     .foregroundColor(.secondary)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
@@ -156,8 +159,8 @@ extension DoctorDetails {
     }
     
     private func appointmentButton() -> some View {
-        Button("Make Appointment") {
-            print("Make Appointment")
+        Button("Make An Appointment") {
+            print("Make An Appointment")
         }
         .buttonStyle(SubmitButtonStyle(isValid: true, color: .blue))
     }
